@@ -1,0 +1,5 @@
+.project
+.buildpath
+.settings/*
+temp/*
+db.conf.php
