@@ -1,4 +1,10 @@
 <?php
+/**
+ * 字符串工具方法
+ * 
+ * @author zhaojian jesse_108@163.com
+ *
+ */
 class Util_String{
 	
 	/**
@@ -9,6 +15,21 @@ class Util_String{
 		$fristChar = $str2PY->getInitials($str);
 		return strtoupper($fristChar[0]);
 	}
+	
+	/**
+	 * 
+	 * @param array/str $data 带编码字符串
+	 * @param boolean $encodeUniCode 中文是否编码
+	 */
+	public static function jsonEncode($data,$encodeUniCode = true){
+		if($encodeUniCode){
+			return json_encode($data);
+		} else {
+			return json_encode($value,JSON_UNESCAPED_UNICODE);
+		}
+	}
+	
+	
 }
 
 

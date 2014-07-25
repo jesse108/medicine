@@ -5,6 +5,7 @@ class DB_Model{
 	public $readDB ='ro';
 	public $writeDB = 'rw';
 	public $primaryKey = 'id';
+	public $logTable = '';
 	
 	
 	public function create($condition,$duplicateCondition = null){
