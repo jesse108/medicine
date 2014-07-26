@@ -12,7 +12,7 @@ class DB{
 		$dbType = $dbType ? $dbType : self::DB_TYPE_RW;
 		if(!self::$_dbObjectList[$dbType]){
 			$dbConfigList = Config::Get('db');
-			$dbConfig = $dbConfigList[$dbType];
+			$dbConfig = $dbConfigList[$dbType] ? $dbConfigList[$dbType] : $dbConfigList[self::DB_TYPE_RW];
 			if($dbConfig){
 				$dbObject = new DBObject($dbConfig);
 				$dbObject->debug = self::$_debug;

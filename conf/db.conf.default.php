@@ -8,10 +8,18 @@
 $dbConfig = array();
 ////主数据库
 $dbConfig['rw'] = array(
-	'host' => 'localhost',
-	'user' => 'root',
-	'password' => '123456',
-	'name' => 'teemo', //库名
+	'host' => '115.28.23.17',
+	'user' => 'medicine_w',
+	'password' => '123456w',
+	'name' => 'medicine_test',
+);
+
+//只读数据库
+$dbConfig['ro'] = array(
+		'host' => '115.28.23.17',
+		'user' => 'medicine_w',
+		'password' => '123456w',
+		'name' => 'app.php',
 );
 
 

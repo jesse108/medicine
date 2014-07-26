@@ -9,3 +9,5 @@ define('CACHE_TEST', CACHE_PERFIX.'_0001');
 
 
 
+////////////Session
+define('SESSION_LOGIN_USER_ID', 'session_0001'); //登陆用户

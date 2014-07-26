@@ -30,8 +30,8 @@ class DB_Log{
 	
 	
 	public function __construct($logTable){
-		if($tableName){
-			$this->logTable = $logTableßß;
+		if($logTable){
+			$this->logTable = $logTable;
 		}
 	}
 	
@@ -44,7 +44,35 @@ class DB_Log{
 			'create_time' => time(),
 			'table_name' => $tableName,
 			'table_id' => $tableID,
+			'type' => $type,
+			'actor_id' => $actorID,
+			'actor_type' => $actorType,
 		);
 		
+		foreach ($updateData as $index => $one){
+			if(isset($oldData[$index]) && $one == $oldData[$index]){
+				unset($updateData[$index]);
+				unset($oldData[$index]);
+			}
+		}
+		
+		
+		$oldData = $oldData ? http_build_query($oldData) : '';
+		$updateData = $updateData ? http_build_query($updateData) : '';
+		
+		switch($type){
+			case self::TYPE_CREATE:
+			case self::TYPE_DELLETE:
+				$log['old_data'] = '';
+				$log['update_data'] = '';
+				break;
+			case self::TYPE_UPDATE:
+				$log['old_data'] = $oldData;
+				$log['update_data'] = $updateData;
+				break;
+		}
+		
+		$id = DB::Insert($this->logTable, $log);
+		return $id;
 	}
 }

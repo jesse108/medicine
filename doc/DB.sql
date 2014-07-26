@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS  `project` (
   `create_time` INT(10) NOT NULL DEFAULT 0,
   `update_time` INT(10) NOT NULL DEFAULT 0,
   `owner_id` BIGINT(20) NOT NULL COMMENT '所有者ID',
-  `max_member_num` INT(10) NOT NULL DEFAULT 100 COMMENT '最大成员数'
+  `max_member_num` INT(10) NOT NULL DEFAULT 100 COMMENT '最大成员数'.
+  key(`owner_id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT = '项目表';
 
 
